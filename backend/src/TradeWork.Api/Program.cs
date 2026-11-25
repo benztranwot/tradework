@@ -8,6 +8,8 @@ var connectionString =
     ?? throw new InvalidOperationException("Missing ConnectionStrings:Default");
 builder.Services.AddSingleton(new DbConnectionFactory(connectionString));
 
+DatabaseMigrator.Migrate(connectionString);
+
 var app = builder.Build();
 
 app.MapGet("/health", () => Results.Ok(new { status = "healthy" }));
