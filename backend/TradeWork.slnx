@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/TradeWork.Api/TradeWork.Api.csproj" />
+    <Project Path="src/TradeWork.Application/TradeWork.Application.csproj" />
+    <Project Path="src/TradeWork.Domain/TradeWork.Domain.csproj" />
+    <Project Path="src/TradeWork.Infrastructure/TradeWork.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/TradeWork.Tests/TradeWork.Tests.csproj" />
+  </Folder>
+</Solution>
