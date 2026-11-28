@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: en-US
+
+reviews:
+  profile: chill
+  high_level_summary: true
+  poem: false
+  auto_review:
+    enabled: true
+    drafts: false
+  path_filters:
+    - "!**/package-lock.json"
+  path_instructions:
+    - path: "backend/**/*.cs"
+      instructions: |
+        Clean Architecture: Api -> Application -> Domain. Infrastructure implements
+        Application interfaces. Domain must not reference any other project or package.
+        Data access is Dapper + Npgsql only; flag any EF Core usage.
+        SQL must be parameterized; flag string concatenation or interpolation in SQL.
+        Business rules and job status changes belong in Domain methods, not endpoints.
+        Never store exact street addresses; only city, state and ZIP.
+    - path: "backend/**/Migrations/*.sql"
+      instructions: |
+        DbUp migrations are numbered scripts that run once. Never edit a script that
+        is already on main; schema changes must be a new, higher-numbered file.
+    - path: "frontend/src/**"
+      instructions: |
+        React + TypeScript. Flag secrets or API keys in client code and any use of `any`.
+
+chat:
+  auto_reply: true
